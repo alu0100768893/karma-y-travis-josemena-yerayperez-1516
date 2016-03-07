@@ -5,13 +5,14 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 **Repositorio GitHuB**
 
-* [Repositorio]()
+* [Repositorio](https://github.com/alu0100783612/object-oriented-programming-in-js-josemena-yerayperez)
 
 **Página de la práctica**
 
-* [Web]()
+* [Web](https://alu0100783612.github.com/object-oriented-programming-in-js-josemena-yerayperez/blob/gh-pages/index.html)
 
-**Página del autor**
+**Página de lo autores**
 
-* [Web Author]()
+* [Web de José Alberto Mena García](http://alu0100768893.github.io/)
 
+* [Web de JYeray Pérez Peraza](http://alu0100783612.github.io/)

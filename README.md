@@ -9,7 +9,7 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 **Página de la práctica**
 
-* [Web](https://alu0100783612.github.com/object-oriented-programming-in-js-josemena-yerayperez/blob/gh-pages/index.html)
+* [Web](http://alu0100783612.github.io/object-oriented-programming-in-js-josemena-yerayperez/)
 
 **Página de lo autores**
 

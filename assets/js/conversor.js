@@ -1,5 +1,21 @@
 (function(exports) {
   "use strict";
+  function exp_reg(cadena){
+    var regexp = XRegExp('(^\\s*)                 # EspaciosEnBlancoAlInicio              \n'+
+                         '(?<val> (([-+]?\d+(?:\.\d+)?)\s*(e[-+]?\d+(?:\.\d+)?)?))    \n'+
+                         '(\\s*)              # EspaciosEnBlancoTrasElNumero          \n'+
+                         '(?<tipo> [fck])     # TipoDeLaMedida                        \n'+
+                         '(\\s*)                                                      \n'+
+                         '(a?)                                                        \n'+
+                         '(\\s*)                                                      \n'+
+                         '(?<destino> [fck])  # MedidaDestino                         \n'+
+                         '(\\s*$)                                                     ','xi');
+    var med = XRegExp.match(cadena, regexp);
+    console.log("entre a exp_reg(): " + med.val);
+      //var regexp = /^\s*([-+]?\d+(?:\.\d+)?)\s*(e[-+]?\d+(?:\.\d+)?)?\s*([fFcCkK])\s*(a)?\s*([cCkKfF])\s*$/;
+      //var med = cadena.match(regexp);
+    return med;
+  }
 
   function Medida(valor,tipo)
   {
@@ -12,8 +28,7 @@
       this.valor_ = valor;
       this.tipo_ = tipo;
     }else {
-      var regexp = /^\s*([-+]?\d+(?:\.\d+)?)\s*(e[-+]?\d+(?:\.\d+)?)?\s*([fFcCkK])\s*(a)?\s*([cCkKfF])\s*$/;
-      var med = valor.match(regexp);
+      var med = exp_reg(valor);
       if (med[2]) {
         var val = med[1];
         var exp = med[2];
@@ -90,25 +105,18 @@
   exports.Kelvin = Kelvin;
 
   exports.convertir = function() {
-  //function convertir() {
   console.log("entre a convertir");
     var valor     = document.getElementById('convert').value,
-        elemento  = document.getElementById('converted'),
-        /* Extienda la RegeExp a la especificación. use una XRegExp, PREGUNTAR POR ESTO */
-        regexp    = /^\s*([-+]?\d+(?:\.\d+)?)\s*(e[-+]?\d+(?:\.\d+)?)?\s*([fFcCkK])\s*(a)?\s*([cCkKfF])\s*$/;
-    valor = valor.match(regexp);
+        elemento  = document.getElementById('converted');
+    console.log("valor(med): " + valor);
+    valor = exp_reg(valor);
 
     if (valor) {
-      if (valor[2]) {
-        var numero = valor[1],
-            exp = valor[2];
-        numero = numero.toString()+exp.toString();
-        var tipo = valor[3];
-      }else {
-      var numero = valor[1],
-          tipo   = valor[3].toLowerCase();
-      }
-      var to = valor[5].toLowerCase();
+      var numero = valor.val;
+      var tipo = valor.tipo;
+      tipo = tipo.toLowerCase();
+      var to = valor.destino;
+      to = to.toLowerCase();
       numero = parseFloat(numero);
       console.log("Valor: " + numero + ", Tipo: " + tipo);
 
@@ -139,10 +147,12 @@
           break;
 
         default:
+          console.log("entre al del case");
           elemento.innerHTML = "Introduzca algo como 32c a F"
       }
     }
     else
+      console.log("entre al del final");
       elemento.innerHTML = "Introduzca algo como 32c a F";
   };
 })(this);

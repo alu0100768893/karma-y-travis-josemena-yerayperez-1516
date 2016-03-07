@@ -2,6 +2,9 @@
 
 Este repositorio aloja la práctica de conversión de tipos, realizada con html, css y javascript, usando POO y haciendo uso de la herencia en javascript.
 
+**Enlace Campus Virtual de la asignatura**
+
+* [Campus Virtual](https://campusvirtual.ull.es/1516/course/view.php?id=144)
 
 **Repositorio GitHuB**
 

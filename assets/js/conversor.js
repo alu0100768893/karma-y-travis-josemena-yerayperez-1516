@@ -1,15 +1,15 @@
 (function(exports) {
   "use strict";
   function exp_reg(cadena){
-    var regexp = XRegExp('^(\\s*)                                                       '+
+  var regexp = XRegExp('^(\\s*)              # Blancos                                  '+
                         '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
                         '(\\s*)                                                         '+
-                        '(?<tipo> [fck])                                                '+
+                        '(?<tipo> [fck])     # Tipo_temperatura                         '+
                         '(\\s*)                                                         '+
-                        '(a?)                                                           '+
+                        '(a?)                # opcional                                 '+
                         '(\\s*)                                                         '+
-                        '(?<destino> [fck])                                             '+
-                        '(\\s*)$                                                        ','x');
+                        '(?<destino> [fck])  # temperatura_destino                      '+
+                        '(\\s*)$                                                        ','xi');
     var med = XRegExp.exec(cadena, regexp);
     return med;
   }

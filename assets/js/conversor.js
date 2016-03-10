@@ -1,49 +1,39 @@
 (function(exports) {
   "use strict";
   function exp_reg(cadena){
-    var regexp = XRegExp('(^\\s*)                 # EspaciosEnBlancoAlInicio              \n'+
-                         '(?<val> (([-+]?\d+(?:\.\d+)?)\s*(e[-+]?\d+(?:\.\d+)?)?))    \n'+
-                         '(\\s*)              # EspaciosEnBlancoTrasElNumero          \n'+
-                         '(?<tipo> [fck])     # TipoDeLaMedida                        \n'+
-                         '(\\s*)                                                      \n'+
-                         '(a?)                                                        \n'+
-                         '(\\s*)                                                      \n'+
-                         '(?<destino> [fck])  # MedidaDestino                         \n'+
-                         '(\\s*$)                                                     ','xi');
-    var med = XRegExp.match(cadena, regexp);
-    console.log("entre a exp_reg(): " + med.val);
-      //var regexp = /^\s*([-+]?\d+(?:\.\d+)?)\s*(e[-+]?\d+(?:\.\d+)?)?\s*([fFcCkK])\s*(a)?\s*([cCkKfF])\s*$/;
-      //var med = cadena.match(regexp);
+    var regexp = XRegExp('^(\\s*)                                                       '+
+                        '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
+                        '(\\s*)                                                         '+
+                        '(?<tipo> [fck])                                                '+
+                        '(\\s*)                                                         '+
+                        '(a?)                                                           '+
+                        '(\\s*)                                                         '+
+                        '(?<destino> [fck])                                             '+
+                        '(\\s*)$                                                        ','x');
+    var med = XRegExp.exec(cadena, regexp);
     return med;
   }
 
   function Medida(valor,tipo)
   {
     console.log("entre en medida");
-    console.log("valor: " + valor);
-    console.log("tipo: " + tipo);
-    this.valor_ = valor;
-    this.tipo_ = tipo;
-    /*if (tipo) {
+    //console.log("valor: " + valor);
+    //console.log("tipo: " + tipo);
+    //this.valor_ = valor;
+    //this.tipo_ = tipo;
+    if (tipo) {
       this.valor_ = valor;
       this.tipo_ = tipo;
     }else {
       var med = exp_reg(valor);
-      if (med[2]) {
-        var val = med[1];
-        var exp = med[2];
-        val = val.toString()+exp.toString();
+      if (med) {
+        var val = med.val;
         val = parseFloat(val);
-        var tip = med[3];
-        this.valor_ = val;
-        this.tipo_ = tip;
-      }else {
-        var val = med[1];
-        var tip = med[3];
+        var tip = med.tipo;
         this.valor_ = val;
         this.tipo_ = tip;
       }
-    }*/
+    }
   };
 
   function Temperatura(valor,tipo)
@@ -62,6 +52,7 @@
   Celsius.prototype.constructor = Celsius;
   Celsius.prototype.toFarenheit = function(){
     var resultado = (this.valor_ * (9/5))+32;
+    console.log("valor resultado: " + resultado);
     return resultado;
   };
   Celsius.prototype.toKelvin = function(){
@@ -108,7 +99,7 @@
   console.log("entre a convertir");
     var valor     = document.getElementById('convert').value,
         elemento  = document.getElementById('converted');
-    console.log("valor(med): " + valor);
+    //console.log("valor(med): " + valor);
     valor = exp_reg(valor);
 
     if (valor) {
@@ -118,41 +109,47 @@
       var to = valor.destino;
       to = to.toLowerCase();
       numero = parseFloat(numero);
-      console.log("Valor: " + numero + ", Tipo: " + tipo);
 
       switch (tipo) {
         case 'c':
           var celsius = new Celsius(numero);
           if (to == 'f') {
             elemento.innerHTML = celsius.toFarenheit().toFixed(2) + " Farenheit";
-          }else {
+          }else if(to == 'k'){
             elemento.innerHTML = celsius.toKelvin().toFixed(2) + " Kelvin";
+          }else{
+            elemento.innerHTML = celsius.valor_ + " Celsius";
           }
           break;
         case 'f':
           var farenheit = new Farenheit(numero);
           if (to == 'c') {
             elemento.innerHTML = farenheit.toCelsius().toFixed(2) + " Celsius";
-          }else {
+          }else if(to == 'k'){
             elemento.innerHTML = farenheit.toKelvin().toFixed(2) + " Kelvin";
+          }else{
+            elemento.innerHTML = farenheit.valor_ + " Farenheit";
           }
           break;
         case 'k':
           var kelvin = new Kelvin(numero);
           if (to == 'f') {
             elemento.innerHTML = kelvin.toFarenheit().toFixed(2) + " Farenheit";
-          }else {
+          }else if(to == 'c'){
             elemento.innerHTML = kelvin.toCelsius().toFixed(2) + " Celsius";
+          }else{
+            elemento.innerHTML = kelvin.valor_ + " Kelvin";
           }
           break;
 
         default:
-          console.log("entre al del case");
+          //console.log("entre al del case");
           elemento.innerHTML = "Introduzca algo como 32c a F"
       }
     }
-    else
-      console.log("entre al del final");
+    else{
+      //console.log("entre al del final");
       elemento.innerHTML = "Introduzca algo como 32c a F";
+    }
   };
 })(this);

@@ -23,8 +23,8 @@ return med;
     console.log("entre en medida");
     //console.log("valor: " + valor);
     //console.log("tipo: " + tipo);
-    //this.valor_ = valor;
-    //this.tipo_ = tipo;
+    this.valor_ = valor;
+    this.tipo_ = tipo;
     if (tipo) {
       this.valor_ = valor;
       this.tipo_ = tipo;
@@ -136,7 +136,7 @@ return med;
       console.log("Target"+target);
       console.log("Devuelvo"+source[target]());
       return source[target]().toFixed(2) + " "+to;
-  
+
 
     }
     catch(err){

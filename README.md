@@ -1,4 +1,4 @@
-# Práctica OOP en JS
+# Práctica eliminación del switch smell
 
 Este repositorio aloja la práctica de conversión de tipos, realizada con html, css y javascript, usando POO y haciendo uso de la herencia en javascript.
 
@@ -8,11 +8,11 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 **Repositorio GitHuB**
 
-* [Repositorio](https://github.com/alu0100783612/object-oriented-programming-in-js-josemena-yerayperez)
+* [Repositorio](https://github.com/alu0100768893/eliminacion-del-switch-smell-josemena-yerayperez-1516)
 
 **Página de la práctica**
 
-* [Web](http://alu0100783612.github.io/object-oriented-programming-in-js-josemena-yerayperez/)
+* [Web](http://ull-esit-gradoii-dsi.github.io/eliminacion-del-switch-smell-josemena-yerayperez-1516/)
 
 **Página de lo autores**
 

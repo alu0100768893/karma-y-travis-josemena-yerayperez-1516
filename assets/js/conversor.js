@@ -1,18 +1,22 @@
+
+
 (function(exports) {
   "use strict";
-  function exp_reg(cadena){
-  var regexp = XRegExp('^(\\s*)              # Blancos                                  '+
-                        '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
-                        '(\\s*)                                                         '+
-                        '(?<tipo> [fck])     # Tipo_temperatura                         '+
-                        '(\\s*)                                                         '+
-                        '(a?)                # opcional                                 '+
-                        '(\\s*)                                                         '+
-                        '(?<destino> [fck])  # temperatura_destino                      '+
-                        '(\\s*)$                                                        ','xi');
-    var med = XRegExp.exec(cadena, regexp);
-    return med;
-  }
+
+function exp_reg(cadena){
+var regexp = XRegExp('^(\\s*)                                                       '+
+                      '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
+                       '(\\s*)                                                         '+
+                      '(?<tipo> [fck])                                                '+
+                       '(\\s*)                                                         '+
+                       '(a?)                                                           '+
+                       '(\\s*)                                                         '+
+                       '(?<destino> [fck])                                             '+
+                      '(\\s*)$                                                        ','xi');
+var med = XRegExp.exec(cadena, regexp);
+return med;
+}
+
 
   function Medida(valor,tipo)
   {
@@ -35,14 +39,19 @@
       }
     }
   };
+   Medida.constructor = Medida;
+   Medida.measures = {};
+// si pongo la funcion Temperatura en otro fichero da error
+// si lo dejo aquí no .
 
   function Temperatura(valor,tipo)
   {
     Medida.call(this, valor, tipo);
   };
+
   Temperatura.prototype = new Medida();
   Temperatura.prototype.constructor = Temperatura;
-
+  exports.Temperatura = Temperatura;
 
   function Celsius(valor)
   {
@@ -90,66 +99,54 @@
     return resultado;
   };
 
+
+   exports.Medida  = Medida;
   exports.Temperatura = Temperatura;
-  exports.Celsius = Celsius;
-  exports.Farenheit = Farenheit;
-  exports.Kelvin = Kelvin;
 
-  exports.convertir = function() {
-  console.log("entre a convertir");
-    var valor     = document.getElementById('convert').value,
-        elemento  = document.getElementById('converted');
-    //console.log("valor(med): " + valor);
-    valor = exp_reg(valor);
+  //exports.Celsius = Celsius;
+  //exports.Farenheit = Farenheit;
+  //exports.Kelvin = Kelvin;
 
-    if (valor) {
-      var numero = valor.val;
-      var tipo = valor.tipo;
+  Medida.convertir = function(valor) {
+
+    //valor = exp_reg(valor);
+
+    var measures= Medida.measures;
+        measures.c = Celsius;
+        measures.k = Kelvin;
+        measures.f = Farenheit;
+
+    var match = exp_reg(valor);
+
+    if (match) {
+      console.log("entre al if");
+      var numero = match.val;
+      var tipo = match.tipo;
+
       tipo = tipo.toLowerCase();
-      var to = valor.destino;
+      var to = match.destino;
       to = to.toLowerCase();
       numero = parseFloat(numero);
+      console.log("numero "+numero+" tipo "+tipo+" destino "+ to);
+    try{
 
-      switch (tipo) {
-        case 'c':
-          var celsius = new Celsius(numero);
-          if (to == 'f') {
-            elemento.innerHTML = celsius.toFarenheit().toFixed(2) + " Farenheit";
-          }else if(to == 'k'){
-            elemento.innerHTML = celsius.toKelvin().toFixed(2) + " Kelvin";
-          }else{
-            elemento.innerHTML = celsius.valor_ + " Celsius";
-          }
-          break;
-        case 'f':
-          var farenheit = new Farenheit(numero);
-          if (to == 'c') {
-            elemento.innerHTML = farenheit.toCelsius().toFixed(2) + " Celsius";
-          }else if(to == 'k'){
-            elemento.innerHTML = farenheit.toKelvin().toFixed(2) + " Kelvin";
-          }else{
-            elemento.innerHTML = farenheit.valor_ + " Farenheit";
-          }
-          break;
-        case 'k':
-          var kelvin = new Kelvin(numero);
-          if (to == 'f') {
-            elemento.innerHTML = kelvin.toFarenheit().toFixed(2) + " Farenheit";
-          }else if(to == 'c'){
-            elemento.innerHTML = kelvin.toCelsius().toFixed(2) + " Celsius";
-          }else{
-            elemento.innerHTML = kelvin.valor_ + " Kelvin";
-          }
-          break;
+      var source = new measures[tipo](numero);
+      console.log("Origen"+ source);
+      var target = "to"+measures[to].name;
+      console.log("Target"+target);
+      console.log("Devuelvo"+source[target]());
+      return source[target]().toFixed(2) + " "+to;
+  
 
-        default:
-          //console.log("entre al del case");
-          elemento.innerHTML = "Introduzca algo como 32c a F"
-      }
     }
+    catch(err){
+      console.log('Desconozco como convertir desde "'+tipo+'" hasta "'+to+'"');
+      return "algo no va bien soy el catch";
+    }
+  }
     else{
-      //console.log("entre al del final");
-      elemento.innerHTML = "Introduzca algo como 32c a F";
+      console.log("entre al del final");
+      return "Introduzca algo como 32c a F";
     }
   };
 })(this);

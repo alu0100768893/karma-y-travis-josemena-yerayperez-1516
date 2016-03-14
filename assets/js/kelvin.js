@@ -10,10 +10,15 @@ var measures= Medida.measures;
 measures.k = Kelvin;
 Kelvin.prototype.toCelsius = function(){
   var resultado = this.valor_ - 273;
-  return resultado;
+  var objetoResultado = new Celsius(resultado);
+  return objetoResultado;
 };
 Kelvin.prototype.toFarenheit = function(){
   var resultado = ((this.valor_ - 273) * (9/5))+32
-  return resultado;
+  var objetoResultado = new Farenheit(resultado);
+  return objetoResultado;
+};
+Kelvin.prototype.toS = function(){
+  return this.valor_;
 };
 })(this);

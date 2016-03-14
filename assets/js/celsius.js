@@ -11,11 +11,15 @@
   measures.c = Celsius;
   Celsius.prototype.toFarenheit = function(){
     var resultado = (this.valor_ * (9/5))+32;
-    console.log("valor resultado: " + resultado);
-    return resultado;
+    var objetoResultado = new Farenheit(resultado);
+    return objetoResultado;
   };
   Celsius.prototype.toKelvin = function(){
     var resultado = this.valor_ + 273;
-    return resultado;
+    var objetoResultado = new Kelvin(resultado);
+    return objetoResultado;
+  };
+  Celsius.prototype.toS = function(){
+    return this.valor_;
   };
 })(this);

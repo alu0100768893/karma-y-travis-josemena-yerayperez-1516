@@ -2,22 +2,7 @@
 
 (function(exports) {
   "use strict";
-  
-/*function exp_reg(cadena){
-var reg1 = '^(\\s*)                                                        '+
-           '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
-           '(\\s*)                                                         '+
-           '(?<tipo> [fck])                                                '+
-           '(\\s*)                                                         ';
-var reg2 = '(a?)                                                           '+
-           '(\\s*)                                                         '+
-           '(?<destino> [fck])                                             '+
-           '(\\s*)$                                                        ';
-var regexp = XRegExp( reg1+reg2 ,'xi');
 
-var med = XRegExp.exec(cadena, regexp);
-return med;
-}*/
 var reg1 = '^(\\s*)                                                        '+
            '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
            '(\\s*)                                                         '+
@@ -69,14 +54,11 @@ var reg2 = '(a?)                                                           '+
     try{
       var measures = Medida.measures;
       var source = new measures[tipo](numero);
-      //console.log("Origen"+ source);
       var target = "to"+measures[to].name;
-      //console.log("Target"+target);
-      //console.log("Devuelvo"+source[target]());
-      return source[target]().toFixed(2) + " "+to;
+      var resultado = source[target]();
+      return resultado.toS() + " " + to;
     }
     catch(err){
-      //console.log('Desconozco como convertir desde "'+tipo+'" hasta "'+to+'"');
       return 'Desconozco como convertir desde "'+tipo+'" hasta "'+to+'"';
     }
   }

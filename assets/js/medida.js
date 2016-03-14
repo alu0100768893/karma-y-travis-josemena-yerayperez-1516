@@ -6,11 +6,11 @@
 var reg1 = '^(\\s*)                                                        '+
            '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
            '(\\s*)                                                         '+
-           '(?<tipo> [fck])                                                '+
+           '(?<tipo> [a-z]+[0-9]*)                                         '+
            '(\\s*)                                                         ';
 var reg2 = '(a?)                                                           '+
            '(\\s*)                                                         '+
-           '(?<destino> [fck])                                             '+
+           '(?<destino> [a-z]+[0-9]*)                                      '+
            '(\\s*)$                                                        ';
 
   function Medida(valor,tipo)

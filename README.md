@@ -18,4 +18,4 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 * [Web de José Alberto Mena García](http://alu0100768893.github.io/)
 
-* [Web de JYeray Pérez Peraza](http://alu0100783612.github.io/)
+* [Web de Yeray Pérez Peraza](http://alu0100783612.github.io/)

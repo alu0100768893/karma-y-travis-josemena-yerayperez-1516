@@ -6,4 +6,5 @@ function Temperatura(valor,tipo)
 };
 Temperatura.prototype = new Medida();
 Temperatura.prototype.constructor = Temperatura;
+exports.Temperatura = Temperatura;
 })(this);

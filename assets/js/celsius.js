@@ -7,6 +7,8 @@
   };
   Celsius.prototype = new Temperatura();
   Celsius.prototype.constructor = Celsius;
+  var measures= Medida.measures;
+  measures.c = Celsius;
   Celsius.prototype.toFarenheit = function(){
     var resultado = (this.valor_ * (9/5))+32;
     console.log("valor resultado: " + resultado);

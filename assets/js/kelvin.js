@@ -6,7 +6,8 @@ function Kelvin(valor)
 };
 Kelvin.prototype = new Temperatura();
 Kelvin.prototype.constructor = Kelvin;
-
+var measures= Medida.measures;
+measures.k = Kelvin;
 Kelvin.prototype.toCelsius = function(){
   var resultado = this.valor_ - 273;
   return resultado;

@@ -3,6 +3,7 @@
 (function(exports) {
   "use strict";
 
+//---Cadenas para las expresiones regulares---
 var reg1 = '^(\\s*)                                                        '+
            '(?<val> ([-+]?\\d+(?:\\.\\d+)?)\\s*(e[-+]?\\d+(?:\\.\\d+)?)?)  '+
            '(\\s*)                                                         '+
@@ -15,16 +16,13 @@ var reg2 = '(a?)                                                           '+
 
   function Medida(valor,tipo)
   {
-    //console.log("entre en medida");
-    this.valor_ = valor;
-    this.tipo_ = tipo;
+    //---Si me introducen las dos variables---
     if (tipo) {
       this.valor_ = valor;
       this.tipo_ = tipo;
+    //---Si introducen toda la temperatura como un sólo argumento---
     }else {
-      //var med = exp_reg(valor);
-      var regex = XRegExp( reg1 ,'xi');
-      var med = XRegExp.exec(valor,regex);
+      var med = XRegExp.exec(valor,XRegExp( reg1 ,'xi'));
       if (med) {
         var val = med.val;
         val = parseFloat(val);
@@ -35,13 +33,12 @@ var reg2 = '(a?)                                                           '+
     }
   };
    Medida.constructor = Medida;
+   //---Tabla hash donde se almacenarán las parejas identificador de la medida y la clase de la medida---
    Medida.measures = {} || 0;
 
   Medida.convertir = function(valor) {
 
-    //var match = exp_reg(valor);
-    var regex = XRegExp( reg1+reg2 ,'xi');
-    var match = XRegExp.exec(valor,regex);
+    var match = XRegExp.exec(valor,XRegExp( reg1+reg2 ,'xi'));
     if (match) {
       //console.log("entre al if");
       var numero = match.val;
@@ -53,8 +50,11 @@ var reg2 = '(a?)                                                           '+
       //console.log("numero "+numero+" tipo "+tipo+" destino "+ to);
     try{
       var measures = Medida.measures;
+      //---Creamos un objeto de la medida tipo a través de la tabla measures---
       var source = new measures[tipo](numero);
+      //---Obtenemos mediante la tabla measures la medida destino de la conversión---
       var target = "to"+measures[to].name;
+      //---Ordenamos al objeto convertirse, lo que nos devuelve un objeto del tipo destino---
       var resultado = source[target]();
       return resultado.toS() + " " + to;
     }
@@ -63,7 +63,6 @@ var reg2 = '(a?)                                                           '+
     }
   }
     else{
-      //console.log("entre al del final");
       return "Introduzca algo como 32c a F";
     }
   };

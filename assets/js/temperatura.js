@@ -7,6 +7,9 @@
   Temperatura.prototype = new Medida();
   Temperatura.prototype.constructor = Temperatura;
 
+  //---Hash de medidas---
+  var measures= Medida.measures;
+
   //---Celsius---
   function Celsius(valor)
   {
@@ -14,7 +17,6 @@
   };
   Celsius.prototype = new Temperatura();
   Celsius.prototype.constructor = Celsius;
-  var measures= Medida.measures;
   measures.c = Celsius;
   Celsius.prototype.toFarenheit = function(){
     var resultado = (this.valor_ * (9/5))+32;
@@ -37,7 +39,6 @@
   };
   Farenheit.prototype = new Temperatura();
   Farenheit.prototype.constructor = Farenheit;
-  var measures = Medida.measures;
   measures.f = Farenheit;
   Farenheit.prototype.toCelsius = function(){
     var resultado = (this.valor_ - 32)*(5/9);
@@ -60,7 +61,6 @@
   };
   Kelvin.prototype = new Temperatura();
   Kelvin.prototype.constructor = Kelvin;
-  var measures= Medida.measures;
   measures.k = Kelvin;
   Kelvin.prototype.toCelsius = function(){
     var resultado = this.valor_ - 273;

@@ -1,5 +1,3 @@
-
-
 (function(exports) {
   "use strict";
 
@@ -18,6 +16,7 @@ var reg2 = '(a?)                                                           '+
   {
     //---Si me introducen las dos variables---
     if (tipo) {
+      console.log("Se pasaron dos parametros");
       this.valor_ = valor;
       this.tipo_ = tipo;
     //---Si introducen toda la temperatura como un sólo argumento---
@@ -32,11 +31,18 @@ var reg2 = '(a?)                                                           '+
       }
     }
   };
-   Medida.constructor = Medida;
+   Medida.prototype.constructor = Medida;
    //---Tabla hash donde se almacenarán las parejas identificador de la medida y la clase de la medida---
-   Medida.measures = {} || 0;
+   Medida.prototype.measures = {} || 0;
+   Medida.prototype.toS = function (){
+     return this.valor_;
+   };
+   Medida.prototype.type = function(){
+     return this.tipo_;
+   };
 
-  Medida.convertir = function(valor) {
+  //Medida.protoype.convertir = function(valor) {
+  Medida.prototype.convertir = function(valor) {
 
     var match = XRegExp.exec(valor,XRegExp( reg1+reg2 ,'xi'));
     if (match) {

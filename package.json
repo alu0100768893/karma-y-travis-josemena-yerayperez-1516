@@ -1,25 +1,29 @@
 {
-  "name": "Conversor",
+  "name": "conversor",
   "version": "0.0.1",
   "description": "Conversor javascript de tipos",
-  "main": "conversor.js",
+  "main": "main.js",
   "scripts": {
     "test": "mocha test",
     "chai": "curl https://raw.githubusercontent.com/chaijs/chai/master/chai.js -o test/chai.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aluXXXXXXX/STW03.git"
+    "url": "git+https://github.com/aluXXXXXXX/STW03.git"
   },
   "keywords": [
     "conversor"
   ],
-  "author": "",
+  "author": "Jose Mena y Yeray Perez",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aluXXXXXXX/STW03/issues"
   },
   "homepage": "https://github.com/aluXXXXXXX/STW03",
   "devDependencies": {
+    "blanket": "^1.2.2",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
   }
 }

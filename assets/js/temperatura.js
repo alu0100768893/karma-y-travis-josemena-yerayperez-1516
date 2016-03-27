@@ -4,9 +4,13 @@
   {
     Medida.call(this, valor, tipo);
   };
+  
   Temperatura.prototype = new Medida();
   Temperatura.prototype.constructor = Temperatura;
-
+Temperatura.prototype.toS = function(){
+    return this.valor_;
+  };
+  exports.Temperatura = Temperatura;
   //---Hash de medidas---
   var measures= Medida.measures;
 
@@ -31,6 +35,7 @@
   Celsius.prototype.toS = function(){
     return this.valor_;
   };
+  exports.Celsius = Celsius;
 
   //---Farenheit---
   function Farenheit(valor)
@@ -53,7 +58,7 @@
   Farenheit.prototype.toS = function(){
     return this.valor_;
   };
-
+exports.Farenheit = Farenheit;
   //---Kelvin---
   function Kelvin(valor)
   {
@@ -75,4 +80,5 @@
   Kelvin.prototype.toS = function(){
     return this.valor_;
   };
+   exports.Kelvin = Kelvin;
 })(this);

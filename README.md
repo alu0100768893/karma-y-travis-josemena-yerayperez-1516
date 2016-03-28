@@ -4,7 +4,7 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 **Enlace a la descripción de la práctica**
 
-* [_Descripción en GitBook_](https://casianorodriguezleon.gitbooks.io/pl1516/content/instruccionesparaelenvio.html)
+* [_Descripción en GitBook_](https://casianorodriguezleon.gitbooks.io/pl1516/content/mochachaisinon.html)
 
 **Enlace Campus Virtual de la asignatura**
 
@@ -12,11 +12,12 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 **Repositorio GitHuB**
 
-* [_Repositorio del fork_](https://github.com/alu0100768893/eliminacion-del-switch-smell-josemena-yerayperez-1516)
+* [_Repositorio del fork_](https://github.com/alu0100768893/eliminacion-del-switch-smell-josemena-yerayperez-1516/tree/gh-pages)
+* [_Repositorio Git Organización_](https://github.com/ULL-ESIT-GRADOII-DSI/eliminacion-del-switch-smell-josemena-yerayperez-1516)
 
 **Página de la práctica**
 
-* [_Web_](http://ull-esit-gradoii-dsi.github.io/eliminacion-del-switch-smell-josemena-yerayperez-1516/)
+* [_Web_](http://alu0100768893.github.io/eliminacion-del-switch-smell-josemena-yerayperez-1516/vendor/tests.html)
 
 **Página de lo autores**
 

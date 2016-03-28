@@ -33,7 +33,7 @@ var reg2 = '(a?)                                                           '+
   };
    Medida.prototype.constructor = Medida;
    //---Tabla hash donde se almacenarán las parejas identificador de la medida y la clase de la medida---
-   Medida.prototype.measures = {} || 0;
+   Medida.measures = {} || 0; 
    Medida.prototype.toS = function (){
      return this.valor_;
    };

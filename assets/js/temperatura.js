@@ -1,4 +1,4 @@
-(function() {
+(function(exports) {
   "use strict";
   function Temperatura(valor,tipo)
   {
@@ -7,9 +7,11 @@
   
   Temperatura.prototype = new Medida();
   Temperatura.prototype.constructor = Temperatura;
-Temperatura.prototype.toS = function(){
-    return this.valor_;
+
+  Temperatura.toS = function(){
+    return this.valor;
   };
+  
   exports.Temperatura = Temperatura;
   //---Hash de medidas---
   var measures= Medida.measures;

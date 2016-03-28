@@ -1,0 +1,10 @@
+#dcha,input{text-align:right}
+#converted,input,td,th{width:500px}
+body,input{font-size:large;font-family:cursive,monospace}
+html{background-image:url(../images/desktop-owl-hd-images.jpg)}
+td,th{vertical-align:top;text-align:left;font-size:large}
+#converted{color:red;font-weight:700;font-size:large}
+input{border:none;border-radius:20px;padding:5px;color:#fff;background-color:#6E6E6E}
+body{color:#1C1C1C}
+h1{font-weight:400;font-family:Fixed,monospace;padding:5px 15px;border-radius:10px;text-align:center}
+table{margin:auto}

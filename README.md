@@ -1,4 +1,4 @@
-# Práctica eliminación del switch smell
+# Práctica 5 Pruebas(Mocha , Tai, Sinon, Blanket) 
 
 Este repositorio aloja la práctica de conversión de tipos, realizada con html, css y javascript, usando POO y haciendo uso de la herencia en javascript.
 

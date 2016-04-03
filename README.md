@@ -1,10 +1,10 @@
-# Práctica 5 Pruebas(Mocha , Tai, Sinon, Blanket) 
+# Práctica 5 Pruebas(Mocha , Tai, Sinon, Blanket) Con Karma y Travis
 
 Este repositorio aloja la práctica de conversión de tipos, realizada con html, css y javascript, usando POO y haciendo uso de la herencia en javascript.
 
 **Enlace a la descripción de la práctica**
 
-* [_Descripción en GitBook_](https://casianorodriguezleon.gitbooks.io/pl1516/content/mochachaisinon.html)
+* [_Descripción en GitBook_](https://casianorodriguezleon.gitbooks.io/pl1516/content/practicas/travis.html)
 
 **Enlace Campus Virtual de la asignatura**
 

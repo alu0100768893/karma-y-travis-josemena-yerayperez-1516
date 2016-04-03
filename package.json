@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "mocha test",
-    "chai": "curl https://raw.githubusercontent.com/chaijs/chai/master/chai.js -o test/chai.js",
-    "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
+    "chai": "curl https://raw.githubusercontent.com/chaijs/chai/master/chai.js -o test/chai.js"
   },
   "repository": {
     "type": "git",
@@ -35,5 +34,8 @@
     "mocha": "^2.4.5",
     "sinon": "^1.17.3",
     "karma": "~0.12"
+  },
+   "scripts": {
+    "test": "./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
   }
 }

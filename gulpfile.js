@@ -1,10 +1,11 @@
 var gulp    = require('gulp'),
     gutil   = require('gulp-util'),
     uglify  = require('gulp-uglify'),
-    concat  = require('gulp-concat');
-var del     = require('del');
-var minifyHTML = require('gulp-minify-html');
-var minifyCSS  = require('gulp-minify-css');
+    concat  = require('gulp-concat'),
+    del     = require('del'),
+    minifyHTML = require('gulp-minify-html'),
+    minifyCSS  = require('gulp-minify-css'),
+    ghPages = require('gulp-gh-pages');
 
 gulp.task('minify', function () {
   gulp.src('assets/js/*.js')
@@ -22,4 +23,9 @@ gulp.task('minify', function () {
 
 gulp.task('clean', function(cb) {
   del(['minified/*'], cb);
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });

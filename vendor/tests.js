@@ -1,4 +1,3 @@
-//var sinon = require("sinon");
 var assert = chai.assert;
 var expect = chai.expect;
 

@@ -22,7 +22,7 @@ describe("Pruebas para Medida", function() {
 
   it('Comrprobar salida que no sea un string', function() {
         var med = new Medida(45,"C");
-        assert.typeOf(med.type(),'string','La salida es un String')
+        assert.typeOf(med.type(),'string','La salida es un String');
     });
     
  it("Convertir de f a c", function() {

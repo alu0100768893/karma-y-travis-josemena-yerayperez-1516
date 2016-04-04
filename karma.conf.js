@@ -17,22 +17,15 @@ module.exports = function(config) {
     files: [
 
       
-//    'http://xregexp.com/v/3.1.0/xregexp-all.js',
-//    'assets/js/medida.js',
-//    'assets/js/temperatura.js',
-//    'assets/js/main.js',
-//    'vendor/blanket.js',
-//    'vendor/chai.js',
-//    'vendor/mocha-blanket.js',
-//    'vendor/mocha.js',
-//    'vendor/sinon.js',
-//    'vendor/tests.html',
-//    'vendor/tests.js'
-      
-      'assets/js/xregexp-all.js',
-      'assets/js/medida.js',
-      'assets/js/*.js',
-      'vendor/*.js'
+    'assets/js/xregexp-all.js',
+    'assets/js/medida.js',
+    'assets/js/temperatura.js',
+    'vendor/blanket.js',
+    'vendor/chai.js',
+    'vendor/tests.js',
+    'vendor/mocha-blanket.js',
+    'vendor/mocha.js',
+    'vendor/sinon.js'
     ],
 
 

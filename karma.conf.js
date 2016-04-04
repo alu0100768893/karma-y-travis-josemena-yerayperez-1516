@@ -10,23 +10,29 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'requirejs'],
+    frameworks: ['mocha'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'assets/js/main.js',
-      'assets/js/medida.js',
-      'assets/js/temperatura.js',
+
+      
+//    'http://xregexp.com/v/3.1.0/xregexp-all.js',
+//    'assets/js/medida.js',
+//    'assets/js/temperatura.js',
+//    'assets/js/main.js',
+//    'vendor/blanket.js',
+//    'vendor/chai.js',
+//    'vendor/mocha-blanket.js',
+//    'vendor/mocha.js',
+//    'vendor/sinon.js',
+//    'vendor/tests.html',
+//    'vendor/tests.js'
+      
       'assets/js/xregexp-all.js',
-      'vendor/blanket.js',
-      'vendor/chai.js',
-      'vendor/mocha-blanket.js',
-      'vendor/mocha.js',
-      'vendor/sinon.js',
-      'vendor/test_bkanket.html',
-      'vendor/tests.html',
-      'vendor/tests.js'
+      'assets/js/medida.js',
+      'assets/js/*.js',
+      'vendor/*.js'
     ],
 
 
@@ -38,6 +44,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+       //'vendor/tests.html': ['html2js']
     },
 
 
@@ -66,12 +73,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous

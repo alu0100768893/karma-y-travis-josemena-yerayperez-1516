@@ -12,12 +12,12 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 
 **Repositorio GitHuB**
 
-* [_Repositorio del fork_](https://github.com/alu0100768893/eliminacion-del-switch-smell-josemena-yerayperez-1516/tree/gh-pages)
-* [_Repositorio Git Organización_](https://github.com/ULL-ESIT-GRADOII-DSI/eliminacion-del-switch-smell-josemena-yerayperez-1516)
+* [_Repositorio del fork_](https://github.com/alu0100783612/eliminacion-del-switch-smell-josemena-yerayperez-1516/tree/master)
+* [_Repositorio Git Organización_](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-mena-yeray)
 
 **Página de la práctica**
 No se cúal es?¿?
-* [_Web_](http://alu0100768893.github.io/eliminacion-del-switch-smell-josemena-yerayperez-1516/vendor/tests.html)
+* [_Web_](https://github.com/alu0100783612/eliminacion-del-switch-smell-josemena-yerayperez-1516/blob/master/vendor/tests.html)
 
 **Página de lo autores**
 

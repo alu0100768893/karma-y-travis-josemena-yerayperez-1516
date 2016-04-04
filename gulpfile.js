@@ -26,6 +26,6 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('deploy', function() {
-  return gulp.src('./*')
+  return gulp.src('./**/*')
     .pipe(ghPages());
 });
